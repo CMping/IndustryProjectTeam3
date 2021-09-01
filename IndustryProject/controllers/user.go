@@ -18,7 +18,14 @@ func init() {
 	bPassword, _ := bcrypt.GenerateFromPassword([]byte("password"), bcrypt.MinCost)
 	mapUsers["admin"] = models.User{"admin", bPassword, "admin", "admin", "admin"}
 }
-
+func ServerHTTPStarter() {
+	http.HandleFunc("/", Index)
+	http.HandleFunc("/signup", Signup)
+	http.HandleFunc("/login", Login)
+	http.HandleFunc("/logout", Logout)
+	http.HandleFunc("/additem", AddItem)
+	http.Handle("/favicon.ico", http.NotFoundHandler())
+}
 func Index(res http.ResponseWriter, req *http.Request) {
 	myUser := getUser(res, req)
 	tpl.ExecuteTemplate(res, "index.gohtml", myUser)
