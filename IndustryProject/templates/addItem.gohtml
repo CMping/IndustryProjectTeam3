@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add item</title>
+</head>
+
+<h2>Add Item</h2>
+
+    <p style="color:red;">{{.ClientMsg}} </p>
+    <p>Enter new recipient details</p>
+    <form method="post" autocomplete="off">
+        <table border="0">
+            <tr>
+                <td><label for="name">Item Name</label></td>
+                <td>:</td>
+                <td><input type="text" name="name" placeholder="name"></td>
+            </tr>
+
+            <tr>
+                <td><label for="price">Price $</label></td>
+                <td>:</td>
+                <td><input type="text" name="price" placeholder="price"></td>
+            </tr>
+
+            <tr>
+                <td><label for="calories">Calories per serving</label></td>
+                <td>:</td>
+                <td><input type="text" name="calories" placeholder="calories"></td>
+            </tr>
+
+            <tr>
+                <td><label for="fats">Fats per serving</label></td>
+                <td>:</td>
+                <td><input type="text" name="fats" placeholder="fats"></td>
+            </tr>
+
+            <tr>
+                <td><label for="sugar">Sugar level per serving</label></td>
+                <td>:</td>
+                <td><input type="text" name="sugar" placeholder="sugar"></td>
+            </tr>
+
+            <tr> 
+                <td colspan="3">
+                    <input type="submit">&nbsp;
+                </td>
+            </tr>   
+        </table>
+    </form>  
+</body>
+</html>
