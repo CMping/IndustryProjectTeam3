@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+</head>
+    <p style="color:red;">{{.ClientMsg}} </p>
+    <p>Restaurant Menu</p>
+    <table id="view">
+        <tr><th colspan="4">Menu</th></tr>
+
+        <tr>
+            <td align="center"><b>Item Name</b></td>
+            <td align="center"><b>Price</b></td>
+            <td align="center"><b>Add</b></td>
+        </tr>
+
+        {{ range .Menu }}
+        <tr>
+            <td align="center"><h3>{{.Item_Name}}</h3></td>
+            <td align="center"><h3>{{.Item_Price}}</h3></td>
+            <td align="center"><a href="/buyItem?itemID={{.Item_ID}}">Add to cart</a></td>
+        </tr>
+        {{end}}
+    </table>
+</body>
+</html>
