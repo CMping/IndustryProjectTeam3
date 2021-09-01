@@ -20,11 +20,6 @@ func init() {
 */
 func main() {
 	database.InitDB()
-	http.HandleFunc("/", controllers.Index)
-	http.HandleFunc("/signup", controllers.Signup)
-	http.HandleFunc("/login", controllers.Login)
-	http.HandleFunc("/logout", controllers.Logout)
-	http.HandleFunc("/additem", controllers.AddItem)
-	http.Handle("/favicon.ico", http.NotFoundHandler())
+	controllers.ServerHTTPStarter()
 	http.ListenAndServe(":8080", nil)
 }
