@@ -4,24 +4,48 @@
     <meta charset="UTF-8">
     <title>Menu</title>
 </head>
+<body>
     <p style="color:red;">{{.ClientMsg}} </p>
     <p>Restaurant Menu</p>
-    <table id="view">
-        <tr><th colspan="4">Menu</th></tr>
+    {{ if .Restaurant }}
+            <table id="view">
+            <tr><th colspan="4">Restaurant Menu</th></tr>
+            <tr>
+                <td align="center"><b>Item Name</b></td>
+                <td align="center"><b>Price</b></td>
+                <td align="center"><b>Update</b></td>
+                <td align="center"><b>Delete</b></td>
+            </tr>
 
-        <tr>
-            <td align="center"><b>Item Name</b></td>
-            <td align="center"><b>Price</b></td>
-            <td align="center"><b>Add</b></td>
-        </tr>
+            {{ range .Menu }}
+            <tr>
+                <td align="center"><h3>{{.Item_Name}}</h3></td>
+                <td align="center"><h3>{{.Item_Price}}</h3></td>
+                <td align="center"><a href="/updateitem?item_id={{.Item_ID}}">Update</a></td>
+                <td align="center"><a href="/deleteitem?item_id={{.Item_ID}}" onclick="return confirm('Are you sure?')">Delete</a></td>
+            </tr>
+            {{ end }}
+        </table>
+    {{ end }}
 
-        {{ range .Menu }}
-        <tr>
-            <td align="center"><h3>{{.Item_Name}}</h3></td>
-            <td align="center"><h3>{{.Item_Price}}</h3></td>
-            <td align="center"><a href="/buyItem?itemID={{.Item_ID}}">Add to cart</a></td>
-        </tr>
-        {{end}}
-    </table>
+    {{ if .User }}
+        <table id="view">
+            <tr><th colspan="4">User Menu</th></tr>
+            <tr>
+                <td align="center"><b>Item Name</b></td>
+                <td align="center"><b>Price</b></td>
+                <td align="center"><b>Add</b></td>
+            </tr>
+
+            {{ range .Menu }}
+            <tr>
+                <td align="center"><h3>{{.Item_Name}}</h3></td>
+                <td align="center"><h3>{{.Item_Price}}</h3></td>
+                <td align="center"><a href="/buyItem?itemID={{.Item_ID}}">Add to cart</a></td>
+            </tr>
+            {{end}}
+        </table>
+    {{ end }}
+
 </body>
 </html>

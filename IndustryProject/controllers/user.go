@@ -23,7 +23,11 @@ func ServerHTTPStarter() {
 	http.HandleFunc("/signup", Signup)
 	http.HandleFunc("/login", Login)
 	http.HandleFunc("/logout", Logout)
-	http.HandleFunc("/additem", AddItem)
+	http.HandleFunc("/additem", addItem)
+	http.HandleFunc("/getitem", getItem)
+	http.HandleFunc("/updateitem", updateItem)
+	http.HandleFunc("/deleteitem", deleteItem)
+	http.HandleFunc("/menu", showMenu)
 	http.Handle("/favicon.ico", http.NotFoundHandler())
 }
 func Index(res http.ResponseWriter, req *http.Request) {

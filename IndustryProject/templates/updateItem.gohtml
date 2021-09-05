@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add item</title>
+</head>
+</body>
+    <p style="color:red;">{{.ClientMsg}} </p>
+    <h2>Updating [{{.Item.Item_Name}}] Details</h2>
+    <form method="post">
+        <table border="0">
+            <tr>
+                <td><label for="name">Item Name</label></td>
+                <td>:</td>
+                <td><input type="text" name="name" placeholder="name" value="{{.Item.Item_Name}}"></td>
+            </tr>
+            <tr>
+                <td><label for="price">Price</label></td>
+                <td>:</td>
+                <td><input type="text" name="price" placeholder="price" value="{{.Item.Item_Price}}"></td>
+            </tr>
+            <tr>
+                <td><label for="calories">Calories</label></td>
+                <td>:</td>
+                <td><input type="text" name="calories" placeholder="calories" value="{{.Item.Calories}}"></td>
+            </tr>
+            <tr>
+                <td><label for="fats">Fats</label></td>
+                <td>:</td>
+                <td><input type="text" name="fats" placeholder="fats" value="{{.Item.Fats}}"></td>
+            </tr>
+            <tr>
+                <td><label for="sugar">Sugar Level</label></td>
+                <td>:</td>
+                <td><input type="text" name="sugar" placeholder="sugar" value="{{.Item.Sugar_Level}}"></td>
+            </tr>
+            <tr> 
+                <td colspan="3">
+                    <input type="submit">&nbsp;
+                </td>
+            </tr>  
+        </table>
+    </form>
+</body>
+</html>

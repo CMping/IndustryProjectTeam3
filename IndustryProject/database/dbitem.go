@@ -2,7 +2,6 @@ package database
 
 import (
 	"IndustryProject/models"
-	"database/sql"
 	"fmt"
 
 	_ "github.com/go-sql-driver/mysql"
@@ -55,14 +54,6 @@ func GetMenu(Restaurant_ID int) ([]models.Item, error) {
 			fmt.Println(">> Panic:", err)
 		}
 	}()
-
-	DB, err := sql.Open("mysql", "user:password@tcp(127.0.0.1:3306)/industry_project")
-	if err != nil {
-		return nil, err
-	}
-
-	defer DB.Close()
-
 	var menu []models.Item
 
 	results, err := DB.Query("SELECT Item_ID, Item_Name, Item_Price, Calories, Fats,"+
@@ -94,13 +85,6 @@ func GetItem(Item_ID int) (models.Item, error) {
 
 	var item models.Item
 
-	DB, err := sql.Open("mysql", "user:password@tcp(127.0.0.1:62045)/industry_project")
-	if err != nil {
-		return item, err
-	}
-
-	defer DB.Close()
-
 	results, err := DB.Query("SELECT Restaurant_ID_fk, Item_Name, Item_Price, Calories, Fats,"+
 		"Sugar_Level FROM Items WHERE Item_ID = ?", Item_ID)
 
@@ -126,13 +110,6 @@ func UpdateItem(Item_ID int, Restaurant_ID int, Item_Name string, Item_Price flo
 		}
 	}()
 
-	DB, err := sql.Open("mysql", "user:password@tcp(127.0.0.1:62045)/industry_project")
-	if err != nil {
-		return err
-	}
-
-	defer DB.Close()
-
 	stmt, err := DB.Prepare("UPDATE Items SET Item_Name=?,Item_Price=?, Calories=?, Fats=?, Sugar_Level=? WHERE Item_ID=? AND Restaurant_ID_fk=?")
 	if err != nil {
 		return err
@@ -152,13 +129,6 @@ func DeleteItem(Item_ID int, Restaurant_ID int) error {
 			fmt.Println(">> Panic:", err)
 		}
 	}()
-
-	DB, err := sql.Open("mysql", "user:password@tcp(127.0.0.1:3306)/industry_project")
-	if err != nil {
-		return err
-	}
-
-	defer DB.Close()
 
 	stmt, err := DB.Prepare("DELETE FROM Items WHERE Item_ID=? AND Restaurant_ID_fk=?")
 	if err != nil {
