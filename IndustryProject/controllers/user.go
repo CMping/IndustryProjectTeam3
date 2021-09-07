@@ -28,6 +28,10 @@ func ServerHTTPStarter() {
 	http.HandleFunc("/updateitem", updateItem)
 	http.HandleFunc("/deleteitem", deleteItem)
 	http.HandleFunc("/menu", showMenu)
+	http.HandleFunc("/cart", cartIndex)
+	http.HandleFunc("/addtocart", addToCart)
+	http.HandleFunc("/removefromcart", removeFromCart)
+
 	http.Handle("/favicon.ico", http.NotFoundHandler())
 }
 func Index(res http.ResponseWriter, req *http.Request) {

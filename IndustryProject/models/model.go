@@ -1,35 +1,18 @@
 package models
 
-import (
-	"encoding/json"
-	"time"
-)
-
 type Orders struct {
-	Id         string          `json:"id"`
-	Create_dtm time.Time       `json:"create_dtm"`
-	Order_id   string          `json:"order_id"`
-	Phone      string          `json:"phone"`
-	Name       string          `json:"name"`
-	Address    string          `json:"address"`
-	Menu       json.RawMessage `json:"menu"`
-	Total_item int             `json:"total_item"`
-	Pay        int             `json:"pay"`
-}
-
-type Query struct {
-	Phone string `json:"phone"`
-	Date  string `json:"date"`
+	Item     Item  `json:"item"`
+	Quantity int64 `json:"quantity"`
 }
 
 type Item struct {
-	Item_ID       int
-	Restaurant_ID int
-	Item_Name     string
-	Item_Price    float64
-	Calories      float64
-	Fats          float64
-	Sugar_Level   float64
+	Item_ID       int     `json:"item_id"`
+	Restaurant_ID int     `json:"restaurant_id"`
+	Item_Name     string  `json:"item_name"`
+	Item_Price    float64 `json:"item_price"`
+	Calories      float64 `json:"calories"`
+	Fats          float64 `json:"fats"`
+	Sugar_Level   float64 `json:"sugar_level"`
 }
 
 type User struct {

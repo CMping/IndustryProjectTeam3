@@ -8,7 +8,6 @@ import (
 	"strconv"
 )
 
-// testing 123
 func addItem(w http.ResponseWriter, r *http.Request) {
 	// check if the user is logged in , and whether he is a restuarant owner
 	if !alreadyLoggedIn(r) {
