@@ -22,6 +22,7 @@ type Query struct {
 	Date  string `json:"date"`
 }
 
+// TODO: (nit) golang does not use snake_case, only camelCase
 type Item struct {
 	Item_ID       int
 	Restaurant_ID int
