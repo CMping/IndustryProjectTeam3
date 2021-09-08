@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Cart</title>
+</head>
+<body>
+    <p style="color:red;">{{.ClientMsg}} </p>
+    <p>Cart</p>
+        <table id="view">
+            <tr>
+                <td alight="center"><b>Action</b></td>
+                <td align="center"><b>Item Name</b></td>
+                <td align="center"><b>Price</b></td>
+                <td align="center"><b>Quantity</b></td>
+            </tr>
+
+            {{ range .Cart }}
+            <tr>
+                <td align="center"><a href="/removefromcart?item_id={{.Item.Item_ID}}">Remove</a></td>
+                <td align="center"><h3>{{.Item.Item_Name}}</h3></td>
+                <td align="center"><h3>{{.Item.Item_Price}}</h3></td>
+                <td align="center"><h3>{{.Quantity}}</h3></td>
+            </tr>
+            {{end}}
+            <tr>
+                <td align="right">Total price $</td>
+                <td align="center">{{.Total}}</td>
+            </tr>
+        </table>
+</body>
+</html>

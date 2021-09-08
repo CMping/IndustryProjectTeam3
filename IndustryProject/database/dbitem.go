@@ -85,14 +85,14 @@ func GetItem(Item_ID int) (models.Item, error) {
 
 	var item models.Item
 
-	results, err := DB.Query("SELECT Restaurant_ID_fk, Item_Name, Item_Price, Calories, Fats,"+
+	results, err := DB.Query("SELECT Item_ID, Restaurant_ID_fk, Item_Name, Item_Price, Calories, Fats,"+
 		"Sugar_Level FROM Items WHERE Item_ID = ?", Item_ID)
 
 	if err != nil {
 		return item, err
 	} else {
 		for results.Next() {
-			err := results.Scan(&item.Item_ID, &item.Item_Name, &item.Item_Price,
+			err := results.Scan(&item.Item_ID, &item.Restaurant_ID, &item.Item_Name, &item.Item_Price,
 				&item.Calories, &item.Fats, &item.Sugar_Level)
 			if err != nil {
 				return item, err
