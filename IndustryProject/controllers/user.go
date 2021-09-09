@@ -10,6 +10,8 @@ import (
 )
 
 var tpl *template.Template
+
+// TODO: (important) avoid using global maps, it's not concurrent safe
 var mapUsers = map[string]models.User{}
 var mapSessions = map[string]string{}
 

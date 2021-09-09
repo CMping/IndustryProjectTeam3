@@ -7,6 +7,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
+// TODO: don't use singleton
 var DB *sql.DB
 var err error
 

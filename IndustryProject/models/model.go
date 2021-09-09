@@ -5,6 +5,7 @@ type Orders struct {
 	Quantity int64 `json:"quantity"`
 }
 
+// TODO: (nit) golang does not use snake_case, only camelCase
 type Item struct {
 	Item_ID       int     `json:"item_id"`
 	Restaurant_ID int     `json:"restaurant_id"`

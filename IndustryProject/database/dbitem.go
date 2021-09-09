@@ -62,6 +62,7 @@ func GetMenu(Restaurant_ID int) ([]models.Item, error) {
 	if err != nil {
 		return nil, err
 	} else {
+		// TODO: (nit) unnecessary else
 		for results.Next() {
 			var item models.Item
 			err := results.Scan(&item.Item_ID, &item.Item_Name, &item.Item_Price,
@@ -91,6 +92,7 @@ func GetItem(Item_ID int) (models.Item, error) {
 	if err != nil {
 		return item, err
 	} else {
+		// TODO: (nit) unnecessary else
 		for results.Next() {
 			err := results.Scan(&item.Item_ID, &item.Restaurant_ID, &item.Item_Name, &item.Item_Price,
 				&item.Calories, &item.Fats, &item.Sugar_Level)
