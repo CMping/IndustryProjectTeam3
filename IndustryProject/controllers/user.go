@@ -31,6 +31,7 @@ func ServerHTTPStarter() {
 	http.HandleFunc("/cart", cartIndex)
 	http.HandleFunc("/addtocart", addToCart)
 	http.HandleFunc("/removefromcart", removeFromCart)
+	http.HandleFunc("/checkout", checkOut)
 
 	http.Handle("/favicon.ico", http.NotFoundHandler())
 }
